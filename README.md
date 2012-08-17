@@ -17,4 +17,4 @@ Requirements
 
 ###Commands
 
-name of synthDef=> pattern ! length/10.0 (seconds)
+$ name of synthDef=> pattern ! length/10.0 (seconds)
