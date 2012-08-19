@@ -17,4 +17,14 @@ Requirements
 
 ###Commands
 
-$ name of synthDef=> pattern ! length/10.0 (seconds)
+  synthDef => pattern ! length
+
+* synthDef = name of synthDef loaded into SuperCollider server
+* pattern consists of text or combination of letters
+* length is length of sample in seconds * 10
+
+###Shortcuts
+
+* 'a'..'z' = typing input
+* UP / DOWN keys changing tempo
+* '`' or '~' turning on listen mode

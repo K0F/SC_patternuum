@@ -152,7 +152,7 @@ void keyPressed() {
     tick++;
     tick=constrain(tick, 1, 200);
   }
-  else if (key=='`') {
+  else if (key=='`' || key=='~') {
     listen=!listen;
   }
   else if (keyCode==LEFT) {
