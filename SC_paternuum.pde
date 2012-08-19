@@ -34,7 +34,7 @@ void setup() {
   frameRate(60);
 
   instruments = new ArrayList();
-  live = new Synth("saw");
+  live = new Synth("sin");
 }
 
 void draw() {
