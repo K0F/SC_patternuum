@@ -8,7 +8,7 @@ s.boot();
    var sin, env_gen, env;
 
    env = Env.triangle(dur, amp);
-   env_gen = EnvGen.kr(env);
+   env_gen = EnvGen.kr(env,doneAction:2);
    sin = SinOsc.ar(freq ,mul: env_gen);
    Out.ar(0, sin);
    Out.ar(1, sin);
