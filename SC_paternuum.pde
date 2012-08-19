@@ -73,6 +73,10 @@ void panel() {
     cnt++;
     text(c, cnt*8, height-10);
   }
+  
+  if(listen)
+  text("listen", width-152, height-10);
+
 
 
   text("tempo => "+(60.0/(tick+0.0))*60, width-100, height-10);
