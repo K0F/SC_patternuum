@@ -10,19 +10,27 @@ class Instrument {
 
   Instrument(int _id, String _synthDef, String _pattern) {
     id = _id;
-    
-    String args[] = splitTokens(_pattern,"=>!");
-    
-    
-    synthDef = args[0];
-    pattern = args[1];
-    dur = parseInt(args[2]);
-    
 
-    
+    String args[] = splitTokens(_pattern, "=>!");
+
+    if (args.length==3) {
+
+
+      synthDef = args[0];
+      pattern = args[1];
+      dur = parseInt(args[2]);
+    }
+    else {
+      synthDef="saw";
+      pattern=args[0];
+      dur=10;
+    }
+
+
     synth = new Synth(synthDef);
     pos = new PVector(10, id*10+20);
   }
+
 
   void trigger() {
     if (pattern.charAt(time%pattern.length())>='a' &&
@@ -30,25 +38,24 @@ class Instrument {
       first) {
       freq = ((int)pattern.charAt(time%pattern.length()))-96;
       float harmonics = tuning[(int)freq-1] * baseFreq;//(pow(3.0, (freq)/12.0+1.0 )) * baseFreq + baseFreq;
-      
-      
-      
-     println(freq+ " >> "+ harmonics);
-      
-      
-      
+
+
+
+      println(freq+ " >> "+ harmonics);
+
+
+
       synth.set("freq", harmonics);
-      synth.set("amp",random(3,10)*0.002);
-      synth.set("dur",random(dur/20.0,dur/10.0));
-      
+      synth.set("amp", random(3, 10)*0.02);
+      synth.set("dur", random(dur/20.0, dur/10.0));
+
       synth.create();
-      synth.free();
-      
+      //synth.free();
     }
   }
-  
-  void free(){
-   synth.free(); 
+
+  void free() {
+    synth.free();
   }
 
   void draw() {
