@@ -41,12 +41,13 @@ void draw() {
   timer();
   background(0);
 
-
+fill(255,al);
+  rect((caret)*6+10, 20+instruments.size()*10-9, 6, 10);
+  
   fill(255);
   text(input, 10, 20+instruments.size()*10);
 
-  fill(al);
-  rect((caret)*6+10, 20+instruments.size()*10-9, 6, 10);
+  
 
 
   grid();
@@ -129,9 +130,11 @@ void keyPressed() {
     caret = constrain(caret, 0, input.length());
   }
   else if (keyCode==BACKSPACE) {
-    if (input.length()>0)
-      input =  input.substring(0, input.length()-1);
+    if (input.length()>0){
+      input =  input.substring(0, caret-1)+input.substring(caret,input.length());
+      caret--;
     caret = constrain(caret, 0, input.length());
+    }
   }
   else if (keyCode==DELETE) {
     if (instruments.size()-1>0);
